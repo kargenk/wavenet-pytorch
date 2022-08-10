@@ -1,0 +1,6 @@
+numpy
+torch
+tqdm
+
+# my package
+-e .
