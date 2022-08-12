@@ -1,0 +1,47 @@
+model:
+  netG:
+    in_dim: 325
+    out_dim: 1
+    hidden_dim: 64
+    bidirectional: false
+    num_layers: 2
+    dropout: 0.5
+  stream_sizes:
+  - 1
+  has_dynamic_features:
+  - false
+verbose: 100
+seed: 42
+cudnn:
+  benchmark: true
+  deterministic: false
+data:
+  train:
+    utt_list: ../data/train.list
+    in_dir: ../data/dump/jsut_sr16000/org/train/in_dulation
+    out_dir: ../data/dump/jsut_sr16000/org/train/out_dulation
+  dev:
+    utt_list: ../data/dev.list
+    in_dir: ../data/dump/jsut_sr16000/org/dev/in_dulation
+    out_dir: ../data/dump/jsut_sr16000/org/dev/out_dulation
+  num_workers: 4
+  batch_size: 256
+train:
+  out_dir: exp
+  log_dir: exp/log
+  epochs: 30
+  checkpoint_epoch_interval: 10
+  optim:
+    optimizer:
+      name: Adam
+      params:
+        lr: 0.0001
+        betas:
+        - 0.9
+        - 0.999
+        weight_decay: 0.0
+    lr_scheduler:
+      name: StepLR
+      params:
+        step_size: 10
+        gamma: 0.5
