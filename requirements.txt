@@ -1,4 +1,7 @@
+hydra-core
+nnmnkwii
 numpy
+tensorboard
 torch
 tqdm
 

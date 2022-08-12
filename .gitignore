@@ -128,5 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-data/jsut_ver1.1
-data/jsut-lab-0.1.1
+data/*/
+exp/
+outputs/
